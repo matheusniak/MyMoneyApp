@@ -40,13 +40,26 @@ export default function BillingCycleForm({
   const watchedCredits = watch("credits") || [];
   const watchedDebts = watch("debts") || [];
 
+  function submit(values) {
+    if (onSubmitType === "create") {
+      dispatch(createBillingCycle(values));
+    } else if (onSubmitType === "update") {
+      dispatch(updateBillingCycle(values));
+    } else if (onSubmitType === "remove") {
+      dispatch(removeBillingCycle(values));
+    }
+    // optionally clear form
+    dispatch(clearForm());
+  }
+
+  // summary calc
   const sum = (arr) =>
     (arr || []).map((x) => +x.value || 0).reduce((t, v) => t + v, 0);
   const sumOfCredits = sum(watchedCredits);
   const sumOfDebts = sum(watchedDebts);
 
   return (
-    <form onSubmit={handleSubmit(() => {})} role="form">
+    <form onSubmit={handleSubmit(submit)} role="form">
       <div className="box-body">
         <LabelAndInput
           name="name"
@@ -73,8 +86,58 @@ export default function BillingCycleForm({
         />
 
         <Summary credit={sumOfCredits} debt={sumOfDebts} />
+
+        <ItemList
+          cols="12 6"
+          list={credits}
+          readOnly={readOnly}
+          fieldName="credits"
+          append={appendCredit}
+          remove={removeCredit}
+          register={register}
+          control={control}
+          legend="Créditos"
+        />
+
+        <ItemList
+          cols="12 6"
+          list={debts}
+          readOnly={readOnly}
+          fieldName="debts"
+          append={appendDebt}
+          remove={removeDebt}
+          register={register}
+          control={control}
+          legend="Débitos"
+          showStatus
+        />
       </div>
-      <div className="box-footer">{/* botões serão adicionados depois */}</div>
+
+      <div className="box-footer">
+        <button
+          type="submit"
+          className={`btn btn-${
+            onSubmitType === "create"
+              ? "primary"
+              : onSubmitType === "update"
+              ? "info"
+              : "danger"
+          }`}
+        >
+          {onSubmitType === "create"
+            ? "Incluir"
+            : onSubmitType === "update"
+            ? "Alterar"
+            : "Excluir"}
+        </button>
+        <button
+          type="button"
+          className="btn btn-default"
+          onClick={() => dispatch(clearForm())}
+        >
+          Cancelar
+        </button>
+      </div>
     </form>
   );
 }
