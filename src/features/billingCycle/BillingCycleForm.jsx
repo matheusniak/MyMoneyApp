@@ -48,7 +48,7 @@ export default function BillingCycleForm({
     } else if (onSubmitType === "remove") {
       dispatch(removeBillingCycle(values));
     }
-    // optionally clear form
+
     dispatch(clearForm());
   }
 
