@@ -26,6 +26,25 @@ export default function BillingCycleForm({
     reset(initial);
   }, [initial, reset]);
 
+  const {
+    fields: credits,
+    append: appendCredit,
+    remove: removeCredit,
+  } = useFieldArray({ control, name: "credits" });
+  const {
+    fields: debts,
+    append: appendDebt,
+    remove: removeDebt,
+  } = useFieldArray({ control, name: "debts" });
+
+  const watchedCredits = watch("credits") || [];
+  const watchedDebts = watch("debts") || [];
+
+  const sum = (arr) =>
+    (arr || []).map((x) => +x.value || 0).reduce((t, v) => t + v, 0);
+  const sumOfCredits = sum(watchedCredits);
+  const sumOfDebts = sum(watchedDebts);
+
   return (
     <form onSubmit={handleSubmit(() => {})} role="form">
       <div className="box-body">
@@ -52,7 +71,8 @@ export default function BillingCycleForm({
           readOnly={readOnly}
           placeholder="Informe o ano"
         />
-        {/* ItemList e Summary serão integrados nos commits seguintes */}
+
+        <Summary credit={sumOfCredits} debt={sumOfDebts} />
       </div>
       <div className="box-footer">{/* botões serão adicionados depois */}</div>
     </form>
