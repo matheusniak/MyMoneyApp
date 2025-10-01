@@ -20,6 +20,27 @@ export default function BillingCycle() {
   const dispatch = useDispatch();
   const [activeTab, setActiveTab] = useState("tabList");
 
+  useEffect(() => {
+    dispatch(fetchBillingCycles());
+    // inicializar form com valores em branco
+    dispatch(clearForm());
+  }, [dispatch]);
+
+  function showCreate() {
+    setActiveTab("tabCreate");
+    dispatch(clearForm());
+  }
+
+  function showUpdate(item) {
+    setActiveTab("tabUpdate");
+    dispatch(setFormValues(item));
+  }
+
+  function showDelete(item) {
+    setActiveTab("tabDelete");
+    dispatch(setFormValues(item));
+  }
+
   return (
     <div>
       <ContentHeader title="Ciclos de Pagamentos" small="Cadastro" />
@@ -38,7 +59,7 @@ export default function BillingCycle() {
               icon="plus"
               target="tabCreate"
               active={activeTab === "tabCreate"}
-              onClick={() => setActiveTab("tabCreate")}
+              onClick={showCreate}
             />
             <TabHeader
               label="Alterar"
@@ -53,10 +74,9 @@ export default function BillingCycle() {
               active={activeTab === "tabDelete"}
             />
           </TabsHeader>
-
           <TabsContent>
             <TabContent id="tabList" visible={activeTab === "tabList"}>
-              <BillingCycleList />
+              <BillingCycleList onEdit={showUpdate} onDelete={showDelete} />
             </TabContent>
             <TabContent id="tabCreate" visible={activeTab === "tabCreate"}>
               <BillingCycleForm onSubmitType="create" />
