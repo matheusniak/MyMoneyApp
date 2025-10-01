@@ -17,13 +17,58 @@ import {
 } from "./billingCycleSlice";
 
 export default function BillingCycle() {
-  // componente básico (sem lógica local/handlers ainda)
+  const dispatch = useDispatch();
+  const [activeTab, setActiveTab] = useState("tabList");
+
   return (
     <div>
       <ContentHeader title="Ciclos de Pagamentos" small="Cadastro" />
       <Content>
-        {/* Tabs e conteúdo serão adicionados nos commits seguintes */}
-        <Tabs />
+        <Tabs>
+          <TabsHeader>
+            <TabHeader
+              label="Listar"
+              icon="bars"
+              target="tabList"
+              active={activeTab === "tabList"}
+              onClick={() => setActiveTab("tabList")}
+            />
+            <TabHeader
+              label="Incluir"
+              icon="plus"
+              target="tabCreate"
+              active={activeTab === "tabCreate"}
+              onClick={() => setActiveTab("tabCreate")}
+            />
+            <TabHeader
+              label="Alterar"
+              icon="pencil"
+              target="tabUpdate"
+              active={activeTab === "tabUpdate"}
+            />
+            <TabHeader
+              label="Excluir"
+              icon="trash-o"
+              target="tabDelete"
+              active={activeTab === "tabDelete"}
+            />
+          </TabsHeader>
+
+          <TabsContent>
+            <TabContent id="tabList" visible={activeTab === "tabList"}>
+              <BillingCycleList />
+            </TabContent>
+            <TabContent id="tabCreate" visible={activeTab === "tabCreate"}>
+              <BillingCycleForm onSubmitType="create" />
+            </TabContent>
+            <TabContent id="tabUpdate" visible={activeTab === "tabUpdate"}>
+              <BillingCycleForm onSubmitType="update" />
+            </TabContent>
+            <TabContent id="tabDelete" visible={activeTab === "tabDelete"}>
+              <BillingCycleForm onSubmitType="remove" readOnly />
+            </TabContent>
+          </TabsContent>
+        </Tabs>
       </Content>
     </div>
   );
