@@ -129,3 +129,158 @@ button:hover,
     box-shadow: none;
   }
 }
+
+/* =======================================
+   Dropdown do hambúrguer (DROPDOWN / HAMBURGER)
+======================================= */
+.dropdown-menu-sidebar {
+  background-color: #343a40;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  transition: opacity 0.22s ease, transform 0.22s ease;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+.dropdown-menu-sidebar.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.dropdown-menu-sidebar a {
+  color: #fff;
+}
+
+.dropdown-menu-sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* small-screen dropdown adjustments */
+@media (max-width: 420px) {
+  .dropdown-menu-sidebar {
+    right: 6px;
+    left: 6px;
+    width: auto;
+    top: calc(56px + 6px); /* caso o Header.jsx não defina top inline */
+    border-radius: 6px;
+  }
+}
+
+/* =======================================
+   Menu lateral
+======================================= */
+.sidebar,
+.main-sidebar {
+  background-color: var(--dark-color);
+  min-height: 100vh;
+  color: #fff;
+}
+
+.sidebar a,
+.main-sidebar a {
+  color: #fff;
+  display: block;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.sidebar a:hover,
+.main-sidebar a:hover {
+  background-color: var(--primary-color);
+  text-decoration: none;
+}
+
+/* =======================================
+   Conteúdo principal
+======================================= */
+.content-wrapper,
+.content {
+  padding: 2rem;
+  background-color: var(--light-color);
+  min-height: calc(100vh - 56px); /* ajusta conforme altura do header */
+}
+
+/* Cards */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  margin-bottom: 1.5rem;
+}
+
+.card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* =======================================
+   Tabelas
+======================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #dee2e6;
+}
+
+th {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+/* =======================================
+   Forms
+======================================= */
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+/* Labels */
+label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: inline-block;
+}
+
+/* =======================================
+   Tabelas responsivas
+======================================= */
+.table-responsive {
+  overflow-x: auto;
+}
+
+/* =======================================
+   Rodapé
+======================================= */
+.footer,
+.main-footer {
+  text-align: center;
+  padding: 1rem;
+  background-color: var(--dark-color);
+  color: #fff;
+  font-size: 0.9rem;
+}
