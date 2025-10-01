@@ -4,6 +4,17 @@ import { useSelector } from "react-redux";
 export default function BillingCycleList({ onEdit, onDelete }) {
   const list = useSelector((state) => state.billingCycle.list) || [];
 
+  function renderRows() {
+    return list.map((bc) => (
+      <tr key={bc._id}>
+        <td>{bc.name}</td>
+        <td>{bc.month}</td>
+        <td>{bc.year}</td>
+        <td>{/* botões serão adicionados no próximo commit */}</td>
+      </tr>
+    ));
+  }
+
   return (
     <div>
       <table className="table">
@@ -15,7 +26,7 @@ export default function BillingCycleList({ onEdit, onDelete }) {
             <th className="table-actions">Ações</th>
           </tr>
         </thead>
-        <tbody>{/* rows serão gerados no commit seguinte */}</tbody>
+        <tbody>{renderRows}</tbody>
       </table>
     </div>
   );
