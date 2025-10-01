@@ -284,3 +284,150 @@ label {
   color: #fff;
   font-size: 0.9rem;
 }
+
+/* =======================================
+   Títulos e headers
+======================================= */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  color: var(--dark-color);
+  margin-bottom: 1rem;
+}
+
+/* =======================================
+   Responsividade
+======================================= */
+@media (max-width: 768px) {
+  .sidebar,
+  .main-sidebar {
+    min-height: auto;
+  }
+
+  .content-wrapper,
+  .content {
+    padding: 1rem;
+  }
+
+  .card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* =========================
+   Botão Hamburger Responsivo
+========================= */
+
+/* Apenas em telas pequenas */
+@media (max-width: 992px) {
+  /* Container do header (logo + botão) */
+  .main-header .navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Logo esquerda, botão direita */
+    padding: 0 10px;
+  }
+
+  /* Logo mantém-se à esquerda */
+  .main-header .logo {
+    flex: 0 0 auto;
+  }
+
+  /* Botão do menu à direita */
+  .main-header .sidebar-toggle {
+    order: 1; /* força aparecer depois do logo */
+    background: none;
+    border: none;
+    color: #fff; /* cor do ícone */
+    font-size: 1.5rem;
+    padding: 0.5rem;
+  }
+
+  /* Remove qualquer quadrado azul ou efeito do container */
+  .main-header .sidebar-toggle:focus,
+  .main-header .sidebar-toggle:hover {
+    background: none;
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Faz o menu lateral não cobrir conteúdo */
+  .main-sidebar {
+    position: fixed;
+    top: 56px;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    transition: left 0.3s ease;
+    z-index: 1030;
+  }
+
+  /* Quando aberto */
+  .sidebar-open .main-sidebar {
+    left: 0;
+  }
+
+  /* Evita sobreposição de conteúdo principal */
+  .content-wrapper {
+    margin-left: 0 !important;
+    transition: margin-left 0.3s ease;
+  }
+
+  .sidebar-open .content-wrapper {
+    margin-left: 250px;
+  }
+}
+
+/* Para telas pequenas */
+@media (max-width: 767px) {
+  .main-sidebar {
+    position: absolute; /* sidebar flutuante */
+    z-index: 1050;
+  }
+
+  .content-wrapper {
+    margin-left: 0; /* conteúdo ocupa toda a largura */
+  }
+
+  .sidebar-toggle {
+    float: right; /* botão à direita do logo */
+    background: transparent !important; /* remove quadrado azul */
+    border: none;
+  }
+}
+
+/* Para telas maiores */
+@media (min-width: 768px) {
+  .main-sidebar {
+    position: fixed;
+  }
+
+  /* =========================
+   Responsividade para SideBar
+========================= */
+  .content-wrapper {
+    margin-left: 230px; /* largura do sidebar */
+  }
+}
+
+.main-sidebar {
+  transition: transform 0.3s ease;
+}
+
+.sidebar-collapse .main-sidebar {
+  transform: translateX(-230px); /* esconde o menu quando collapsed */
+}
+
+@media (max-width: 767px) {
+  .main-sidebar {
+    transform: translateX(-230px); /* escondido por padrão em mobile */
+  }
+
+  .sidebar-open .main-sidebar {
+    transform: translateX(0); /* aparece quando toggle clicado */
+  }
+}
