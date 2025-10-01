@@ -10,7 +10,14 @@ export default function BillingCycleList({ onEdit, onDelete }) {
         <td>{bc.name}</td>
         <td>{bc.month}</td>
         <td>{bc.year}</td>
-        <td>{/* botões serão adicionados no próximo commit */}</td>
+        <td>
+          <button className="btn btn-warning" onClick={() => onEdit(bc)}>
+            <i className="fa fa-pencil"></i>
+          </button>
+          <button className="btn btn-danger" onClick={() => onDelete(bc)}>
+            <i className="fa fa-trash-o"></i>
+          </button>
+        </td>
       </tr>
     ));
   }
@@ -26,7 +33,7 @@ export default function BillingCycleList({ onEdit, onDelete }) {
             <th className="table-actions">Ações</th>
           </tr>
         </thead>
-        <tbody>{renderRows}</tbody>
+        <tbody>{renderRows()}</tbody>
       </table>
     </div>
   );
