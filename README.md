@@ -41,11 +41,7 @@ Desenvolvido com **React**, **Redux Toolkit** e **React Router DOM**.
 
 ## 🖼️ Pré-visualização
 
-> ⚠️ Adicione imagens reais do projeto na pasta `/docs` e substitua os caminhos abaixo.
-
 ### Dashboard
-
-📸 **Colocar imagem mostrando os 3 ValueBoxes (Total de Créditos, Débitos e Valor Consolidado)**
 
 ```markdown
 ![Dashboard Preview](/docs/screenshot-dashboard.png)
@@ -54,6 +50,8 @@ Desenvolvido com **React**, **Redux Toolkit** e **React Router DOM**.
 ### Ciclos de Pagamento
 
 ![Billing Cycles Preview](/docs/screenshot-billingcycle.png)
+
+> ⚠️ Observação: o sidebar não aparece estendido até o final da página na screenshot full porque ele utiliza `position: fixed` e altura igual à viewport. Em capturas de tela “full page”, elementos fixos não se expandem junto ao documento longo, então é um comportamento esperado.
 
 ### Formulário Dinâmico
 
