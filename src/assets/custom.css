@@ -158,7 +158,7 @@ button:hover,
 }
 
 /* small-screen dropdown adjustments */
-@media (max-width: 420px) {
+@media (max-width: 320px) {
   .dropdown-menu-sidebar {
     right: 6px;
     left: 6px;
