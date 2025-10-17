@@ -117,8 +117,8 @@ Este projeto foi desenvolvido com foco em praticar conceitos fundamentais de Rea
 
 ### 🧩 Pré-requisitos
 
-Node.js >= 16
+- Node.js >= 16
 
-npm ou yarn
+- npm ou yarn
 
-Navegador moderno (Chrome, Edge, Firefox)
+- Navegador moderno (Chrome, Edge, Firefox)
