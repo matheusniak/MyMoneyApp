@@ -176,6 +176,7 @@ src/
   common/              # componentes reutilizáveis (layout, tab, form, widget)
   mocks/               # axiosMock.js
   assets/              # custom.css e outros estilos
+    screenshots/       # imagens para o README / pré-visualização
 ```
 
 ---
