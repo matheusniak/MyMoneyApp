@@ -44,22 +44,30 @@ Desenvolvido com **React**, **Redux Toolkit** e **React Router DOM**.
 ### Dashboard
 
 ```markdown
-![Dashboard Preview](/docs/screenshot-dashboard.png)
+![Dashboard Preview](src/assets/screenshots/dashboard.png)
 ```
+
+> ⚠️ Observação: os valores exibidos (Créditos / Débitos / Consolidado) são placeholders. Números reais dependem da API/da base de dados.
 
 ### Ciclos de Pagamento
 
-![Billing Cycles Preview](/docs/screenshot-billingcycle.png)
+![Billing Cycles Preview 'Listar'](src/assets/screenshots/billing_cycles_listar.png)
+
+![Billing Cycles Preview 'Incluir'](src/assets/screenshots/billing_cycles_full_incluir.png)
 
 > ⚠️ Observação: o sidebar não aparece estendido até o final da página na screenshot full porque ele utiliza `position: fixed` e altura igual à viewport. Em capturas de tela “full page”, elementos fixos não se expandem junto ao documento longo, então é um comportamento esperado.
 
 ### Formulário Dinâmico
 
-![Formulário Dinâmico](/docs/screenshot-form.png)
+![Formulário Dinâmico](src/assets/screenshots/formulario_dinamico.png)
+
+> ⚠️ Observação: o formulário é interativo — as linhas de créditos e débitos podem ser adicionadas/duplicadas/removidas durante o uso. A captura mostra o formulário com múltiplos itens para demonstrar esse comportamento.
 
 ### Menu Responsivo
 
-![Menu Responsivo](/docs/screenshot-hamburger.png)
+![Menu Responsivo](src/assets/screenshots/billing_cycles_responsive.png)
+
+![Menu Responsivo](src/assets/screenshots/menu_hamburguer_responsivo.png)
 
 ---
 
